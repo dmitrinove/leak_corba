@@ -1,0 +1,18 @@
+
+typedef short TempType;
+
+struct BtData {
+    TempType requested;
+    TempType min_permitted;
+    TempType max_permitted;
+    string error_msg;
+};
+
+interface Storage {
+    void put(in BtData data);
+    void get(out BtData data);
+
+    void put_any(in any adata);
+    void get_any(out any adata);
+};
+

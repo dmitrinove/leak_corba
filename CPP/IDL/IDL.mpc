@@ -1,0 +1,11 @@
+
+project : taoidldefaults {
+	IDL_Files {
+        commandflags -= -Sa
+        commandflags -= -St
+		../../Leak.idl
+	}
+
+    custom_only = 1
+}
+

@@ -1,0 +1,12 @@
+
+project : taoserver {
+	after += IDL
+
+	includes += ../IDL
+	Source_Files {
+		server.cpp
+		../IDL/LeakC.cpp
+		../IDL/LeakS.cpp
+	}
+}
+

@@ -1,0 +1,28 @@
+
+project {
+    Define_Custom(JAVA_IDL) {
+        command  = idlj -fall
+        inputext = .idl
+    }
+    
+    JAVA_IDL_Files {
+        // server and client:  Storage.java, StorageOperations.java
+        // server only:  StoragePOA.java
+        // client only:  StorageHelper.java, StorageHolder.java, _StorageStub.java
+        ../../Leak.idl >> TempTypeHelper.java \
+            _StorageStub.java \
+            StorageOperations.java \
+            Storage.java \
+            StorageHolder.java \
+            StorageHelper.java \
+            BtData.java \
+            BtDataHolder.java \
+            BtDataHelper.java
+    }
+    
+    specific {
+        // to provide more info on unchecked calls in generated code
+        compile_option  += -Xlint:unchecked
+    }
+}
+
